@@ -13,7 +13,7 @@ fn app() -> Router {
 async fn main() {
     let app = app();
     let address = SocketAddr::new(Ipv4Addr::UNSPECIFIED.into(), 3000);
-    Server::bind(&address.into())
+    Server::bind(&address)
         .serve(app.into_make_service())
         .await
         .unwrap();
